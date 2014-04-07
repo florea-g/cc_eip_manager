@@ -1,0 +1,16 @@
+<?php
+function verif($pseudo, $passwd)
+{
+$reponse = $bdd->query("SELECT pseudo, passwd FROM user where pseudo = '".$pseudo."' AND passwd = '".$passwd."'");
+$existe = $reponse->fetch();
+if(!empty($existe))
+	{
+		return TRUE;
+	}
+	else
+	{	
+		return FALSE;
+	}
+}
+
+?>

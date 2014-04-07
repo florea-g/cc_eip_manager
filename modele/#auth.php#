@@ -1,0 +1,45 @@
+<?php
+	function check($_POST)
+	{
+		if ($_POST['Eid'] != '')
+		{
+			$req = $bdd->query("SELECT pseudo FROM user WHERE pseudo = '".$_POST['pseudo']."'");
+			$pseudo = $rep->fetch();
+			if (empty($pseudo))
+			{
+				return FALSE;
+			}
+		}
+		else
+		{
+			return FALSE;
+		}
+		if ($_POST['fName'] == '')
+		{
+			return FALSE;
+		}
+		if ($_POST['lName'] == '')
+		{
+			return FALSE;
+		}
+		if ($_POST['password'] == '' || $_POST['password'] != $_POST['cpassword'])
+		{
+			return FALSE;
+		}
+		if ($_POST['email'] == '')
+		{
+			return FALSE;
+		}
+		return TRUE;
+	}
+	function register($_POST)
+	{
+		if (check($_POST) == TRUE)
+		{
+		$reponse = $bdd->exec("INSERT INTO clients (pseudo, nom, prenom, passwd, mail, droit) VALUES ('".$_POST['Eid']."','".$_POST['fName']."', '".$_POST['lName']."', '".$_POST['password']."', '".$_POST['email']."', 1)");
+		return TRUE;
+		die();
+		}
+		return FALSE;
+	}		
+?>
