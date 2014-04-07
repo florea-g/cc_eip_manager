@@ -1,3 +1,8 @@
+CODE CAMP -- WEB
+---------------------
+Organisation: Prep'ETNA
+Delay: one week
+
 Authors / Contributors
 ----------------------
 
